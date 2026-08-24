@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Buzzer Raum</title>
+</head>
+<body>
+    <h1>Willkommen zu einem neuen Quiz</h1>
+    <input type="text" id="spielerName" placeholder="Dein Name" />
+    <button id="buzzerButton">BUZZERN!</button>
+
+    <hr>
+    <h2>Status:</h2>
+    <h3 id="statusMeldung">FREI! </h3>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
+    <script src="app.js"></script>
+
+    <audio id?="buzzerSound" src="buzzer.mp3" preload="auto"></audio>
+</body>
+</html>
