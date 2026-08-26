@@ -2,20 +2,31 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Buzzer Raum</title>
+    <title>Buzzer App - Auswahl</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <h1>Willkommen zu einem neuen Quiz</h1>
-    <input type="text" id="spielerName" placeholder="Dein Name" />
-    <button id="buzzerButton">BUZZERN!</button>
+<body class="dark-mode">
+    <nav class="navbar">
+        <div>
+            <a href="index.html">Start</a>
+            <a href="spieler.html">Spieler</a>
+            <a href="quizmaster.html">Quizmaster</a>
+        </div>
+        <button onclick="document.body.classList.toggle('dark-mode'); this.innerText = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';">☀️ Light Mode</button>
+    </nav>
+    <div class="container">
+        <h1>Wilkommen zur Buzzer App</h1>
+        <p>Bitte wähle deine Rolle:</p>
 
-    <hr>
-    <h2>Status:</h2>
-    <h3 id="statusMeldung">FREI! </h3>
+        <br>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
-    <script src="app.js"></script>
+        <a href="spieler.html">
+            <button style="padding: 15px 30px; font-size: 18px; margin: 10px; cursor: pointer;">Teilnehmer</button>
+        </a>
 
-    <audio id?="buzzerSound" src="buzzer.mp3" preload="auto"></audio>
+        <a href="quizmaster.html">
+            <button style="padding: 15px 30px; font-size: 18px; margin: 10px; cursor: pointer;">Quizmaster</button>
+        </a>
+    </div>
 </body>
 </html>

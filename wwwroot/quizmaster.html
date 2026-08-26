@@ -2,16 +2,34 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Quizmaster-Pult</title>
+    <title>Buzzer - Quizmaster</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
 </head>
-<body>
-    <h1>Quizmaster Kontrolle</h1>
-    <button id="resetButton">Runde zurücksetzen</button>
-    <hr>
-    <h2>Status:</h2>
-    <h3 id="statusMeldung">FREI!</h3>
+<body class="dark-mode">
+    <nav class="navbar">
+        <div>
+            <a href="index.html">Start</a>
+            <a href="spieler.html">Spieler</a>
+            <a href="quizmaster.html">Quizmaster</a>
+        </div>
+        <button onclick="document.body.classList.toggle('dark-mode'); this.innerText = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';">☀️ Light Mode</button>
+    </nav>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/8.0.0/signalr.min.js"></script>
-    <script src="quizmaster.js"></script>
+    <div class="container" style="margin-top: 80px;">
+        <h1>Quizmaster Kontrolle</h1>
+        <h2 id="timerAnzeige" style="color: red; font-size: 30px;"></h2>
+        <h2 id="statusMeldung">Wartet auf Spieler ...</h2>
+
+        <button id="btnRichtig" onclick="antwortRichtig()" disabled style="background-color: #28a745;">Richtig (+4 für Spieler)</button>
+        <button id="btnFalsch" onclick="antwortFalsch()" disabled style="background-color: #dc3545;">Falsch (+1 für alle anderen)</button>
+        <br><br>
+        <button id="resetButton" style="background-color: #6c757d;">Manuell zurücksetzen</button>
+
+        <h2>Punktestand:</h2>
+        <ul id="punkteListe" style="list-style-type: none; padding: 0; font-size: 18px;"></ul>
+    </div>
+
+        <script src="quizmaster.js"></script>
 </body>
 </html>

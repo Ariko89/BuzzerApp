@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <title>Buzzer - Spieler</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/6.0.1/signalr.js"></script>
+</head>
+<body class="dark-mode">
+    <nav class="navbar">
+        <div>
+            <a href="index.html">Start</a>
+            <a href="spieler.html">Spieler</a>
+            <a href="quizmaster.html">Quizmaster</a>
+        </div>
+        <button onclick="document.body.classList.toggle('dark-mode'); this.innerText = document.body.classList.contains('dark-mode') ? '☀️ Light Mode' : '🌙 Dark Mode';">☀️ Light Mode</button>
+    </nav>
+    <div class="container">
+        <h1>Spieler</h1>
+        <h2 id="timerAnzeige" style="color: red; font-size: 30px;"></h2>
+    </div>
+    <div id="loginBereich">
+        <input type="text" id="spielerName" placeholder="Dein Name" style="padding: 10px; margin-bottom: 10px;">
+        <button id="anmeldenBtn">Anmelden</button>
+        <br><br>
+        <button id="buzzerBtn" disabled style="padding: 30px; font-size: 24px; background-color: red;">BUZZER</button>
+    </div>
+
+    <div id="antwortBereich" style="display: none; margin-top: 20px">
+        <input type="text" id="antwortFeld" placeholder="Geheime Antwort..." style="padding: 10px;">
+        <button id="antwortBtn" style="background-color: #17a2b8;">An Quizmaster senden</button>
+    </div>
+
+        <h2>Punkte:</h2>
+        <ul id="punkteListe" style="list-style-type: none; padding: 0; font-size: 18px;"></ul>
+
+    <script src="app.js"></script>
+</body>
+</html>
