@@ -1,22 +1,35 @@
-# 🔴 SignalR Quiz-Buzzer
+# Quiz-Buzzer App (ASP.NET Core SignalR)
 
-Ein schnelles Echtzeit-Multiplayer-Buzzersystem für Quizrunden. Dieses Projekt ist als Praxisprojekt entstanden, um C# und asynchrone Web-Kommunikation zu vertiefen – mit ein wenig KI-Unterstützung beim Feinschliff der Logik. 
+Eine Echtzeit-Webanwendung für Quizspiele, entwickelt mit **C#, ASP.NET Core, SignalR** und **Vanilla JavaScript**. Die App bietet ein interaktives Erlebnis für Spieler und ein umfassendes Kontroll-Dashboard für den Quizmaster.
 
-Ziel war es, eine absolut synchrone Auswertung zu garantieren, wenn mehrere Leute exakt gleichzeitig auf den Buzzer hauen.
+## Funktionen
 
-## ✨ Features
-* **Millisekunden-genauer Lock:** Thread-Sicherheit (`lock` in C#) garantiert, dass immer nur ein Spieler den Buzzer auslösen kann.
-* **Teilnehmer-Limit:** Der Hub erlaubt maximal 5 Verbindungen (4 Spieler + 1 Quizmaster). Weitere Verbindungen werden serverseitig direkt gekappt.
-* **Quizmaster-Dashboard:** Ein separates Pult (`quizmaster.html`), um den Buzzer für die nächste Runde wieder freizugeben.
-* **Audio-Feedback:** Automatischer MP3-Sound beim Auslösen.
+### Für Spieler
+* **Echtzeit-Buzzer:** Schnelles Buzzern via Button oder **Leertaste**.
+* **Live-Punkte:** Anzeige des aktuellen Punktestands aller Teilnehmer.
+* **Geheime Antworten:** Spieler können Textantworten über SignalR-Gruppen absenden, die **nur** der Quizmaster sieht.
+* **Countdown:** Automatischer 5-Sekunden-Timer nach dem Buzzern.
 
-## 🚀 Tech-Stack
-* **Backend:** C#, ASP.NET Core SignalR
-* **Frontend:** HTML, CSS, JavaScript (Vanilla)
+### Für den Quizmaster
+* **Antwort-Bewertung:** 
+  * Richtig = 4 Punkte für den aktuellen Spieler.
+  * Falsch = 1 Punkt für alle anderen Spieler.
+* **Live-Dashboard:** Übersicht über alle angemeldeten Spieler, Punktestände und eingegebene Geheim-Antworten.
+* **Manuelle Kontrolle:** Buzzer-Runden können jederzeit manuell zurückgesetzt werden.
 
-## 🛠️ Lokale Installation
-1. Repository klonen.
-2. Im Projektverzeichnis das Terminal öffnen und `dotnet run` ausführen.
-3. Im Browser aufrufen:
-   * **Spieler:** `http://localhost:<PORT>`
-   * **Quizmaster:** `http://localhost:<PORT>/quizmaster.html`
+### UI & Design
+* **Dynamisches Login:** Das Namens-Eingabefeld verschwindet elegant nach der Anmeldung.
+* **Dark / Light Mode:** Globaler Button zum Wechseln des Designs für eine augenschonende Nutzung.
+* **Responsive Layout:** Einheitliches Design für Startseite, Spieler-Ansicht und Quizmaster-Bereich.
+
+## Technologien
+
+* **Backend:** C#, ASP.NET Core
+* **Echtzeit-Kommunikation:** SignalR (inkl. Thread-sicherer Locks & Groups)
+* **Frontend:** HTML5, CSS3, Vanilla JavaScript
+
+## Installation & Start
+
+1. Repository klonen:
+   ```bash
+   git clone [Deine-Repo-URL]
